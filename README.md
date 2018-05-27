@@ -12,6 +12,23 @@
 
 `pm2 logs`  查看pm2日志信息
 
+
+
 >  使用Nginx反向代理
 
 `sudo apt-get insatll nginx`  安装nginx
+
+
+> mogodb服务
+
+`sudo mongod service start`  开启MongoDB服务器
+
+`sudo mongod service stop`  关闭MongoDB服务器
+
+`sudo mongod service restart`  重启MongoDB服务器
+
+
+
+> 修改mongodb默认端口（27017）
+
+`sudo vi /etc/mongod.conf` 找到 `port` 配置项并修改为其他值即可
