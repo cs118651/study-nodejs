@@ -32,3 +32,17 @@
 > 修改mongodb默认端口（27017）
 
 `sudo vi /etc/mongod.conf` 找到 `port` 配置项并修改为其他值即可
+
+### 2. 在express中使用handlebars模板引擎
+
+首先是安装：`npm install --save express3-handlebars` 
+
+然后是引入：
+
+```
+const handlebars = require('express3-handlebars').create({ defaultLayout: 'main' });
+app.engine('handlebars', handlebars.engine);
+app.set('view engine', 'handlebars');
+```
+
+handlebars默认扩展名为 `	.handlebars` ，可以在引入时 `const handlebars = require('express3-handlebars').create({ extname: '.hbs' })` ，将扩展名设置为 `.hbs` 
