@@ -46,3 +46,6 @@ app.set('view engine', 'handlebars');
 ```
 
 handlebars默认扩展名为 `	.handlebars` ，可以在引入时 `const handlebars = require('express3-handlebars').create({ extname: '.hbs' })` ，将扩展名设置为 `.hbs` 
+
+### 3. 使用MongoDB存储数据
+
