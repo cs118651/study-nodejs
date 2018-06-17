@@ -10,7 +10,8 @@
 
 `pm2 show <id | name>`  查看指定服务的详细信息
 
-`pm2 logs`  查看pm2日志信息
+- `pm2 logs`  查看pm2日志信息
+
 
 
 
@@ -49,3 +50,22 @@ handlebars默认扩展名为 `	.handlebars` ，可以在引入时 `const handleb
 
 ### 3. 使用MongoDB存储数据
 
+使用mogod启动mongodb服务，使用自带的mongo客户端连接服务器，默认为`127.0.0.1:27017/test` 。
+
+> 常用命令
+
+- `show dbs`  查看当前数据库列表
+
+- `use dbs_name`  切换到名为`dbs_name` 的数据库
+
+- `db.dropDatabase()`  将当前切换到的数据库删除
+
+### 4. 将本地数据库上传至线上
+
+首先执行备份命令 `mongodump -h 127.0.0.1:27017 -d CS-ONE -o CS-ONE-backup` 将本地`CS-ONE`数据库备份
+
+接着执行打包命令 `tar zcvf CS-ONE.tar.gz CS-ONE-backup` 
+
+接着执行上传命令 `scp ./CS-ONE.tar.gz root@119.23.229.191:/root/dbbackup ` 
+
+执行导入命令 `mongorestore --host 127.0.0.1:27017 -d CS-ONE ./dbbackup/CS-ONE-backup` 
